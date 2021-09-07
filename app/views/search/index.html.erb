@@ -1,0 +1,11 @@
+<div>
+  <ul>
+    <% @characters.each do |character| %>
+      <li>Name: <%= character.name %><br>
+      Allies: <%= character.allies %><br>
+      Enemies: <%= character.enemies %><br>
+      Affiliation: <%= character.affiliation %><br>
+      <%= image_tag "#{character.photo_url}" %><br><br></li>
+    <% end %>
+  </ul>
+</div>

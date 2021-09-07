@@ -27,8 +27,22 @@ require 'rails_helper'
       # - Any affiliations that the member has
       it 'has the detailed info from the first 25 people' do
         #there were only 20 people in fire nation?
+        @members = AirBenderFacade.get_nation_members('fire_nation')
         within('#detailed') do
           expect(page).to have_css('tr', count: 21)
+          within('#Afiko') do
+            expect( page.find('td:nth-of-type(1)').text).to eq("Afiko")
+            expect( page.find('td:nth-of-type(4)').text).to eq("[\"Aang\"]")
+            expect( page.find('td:nth-of-type(5)').text).to eq("Fire Nation")
+          end
+          within('#Chey') do
+          expect( page.find('td:nth-of-type(1)').text).to eq("Chey")
+          expect( page.find('td:nth-of-type(4)').text).to eq("[\"Fire Nation\"]")
+          expect( page.find('td:nth-of-type(5)').text).to eq("Fire Nation Army (formerly)")
+          end
+          expect( page.find('tr:nth-of-type(10)').text).to eq("Azula's ship captain [\"Azula\"] [\"Iroh\"] Fire Nation Navy")
+          expect( page.find('tr:nth-of-type(21)').text).to eq("Fire Nation bar patron's friend [\"Fire Nation bar patron\"] [\"Katara\"] Fire Nation")
+
         end
       end
   end

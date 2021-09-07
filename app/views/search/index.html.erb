@@ -13,7 +13,7 @@
       <th>affiliation</th>
     </tr>
     <% @members.each do |member| %>
-    <tr>
+    <tr id="<%=member.name%>">
       <td>
         <%= member.name %>
       </td>

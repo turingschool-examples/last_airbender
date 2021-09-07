@@ -12,6 +12,7 @@ RSpec.describe 'Index' do
   it 'displaysinformation for first 25 members' do
     expect(page).to have_content('Cabbage merchant')
     expect(page).to have_content('Affiliation: Cabbage Corp Earth Kingdom')
+    expect(page.find('#5cf5679a915ecad153ab68f7')['src']).to have_content("https://vignette.wikia.nocookie.net/avatar/images/2/2f/Cabbage_merchant.png/revision/latest?cb=20140112200908")
     within(:css, "#5cf5679a915ecad153ab68f7.allies") do
       expect(page).to have_content('Allies:')
       expect(page).to have_content('Cabbage Corp')

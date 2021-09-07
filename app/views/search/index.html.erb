@@ -1,6 +1,22 @@
 <h1>Avatar Nation</h1>
 
+<h2>Total Members: <%= @members.length %></h2>
+
 <h2>List of Members:</h2>
-<% @members.each do |member| %>
-  <%= member[:name] %>
-<% end %>
+<div id="members">
+  <% @members.each do |member| %>
+    <b><%= member[:name] %></b><br>
+    Allies: <% if member[:allies].length == 0 %>
+              <%= "None" %>
+            <% else %>
+              <%= member[:allies].join(", ") %>
+            <% end %><br>
+    Enemies: <% if member[:enemies].length == 0 %>
+              <%= "None" %>
+            <% else %>
+              <%= member[:enemies].join(", ") %>
+            <% end %><br>
+
+    Affiliations: <%= member[:affiliation] %><br><br>
+  <% end %>
+</div>

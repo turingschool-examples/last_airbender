@@ -22,8 +22,16 @@ RSpec.describe 'Avatar Kingdom Show Page' do
     click_button "Search For Members"
 
     expect(current_path).to eq("/search")
-    expect(page).to have_content('Chan (Fire Nation admiral)')
-    expect(page).to have_content('Circus master')
-    expect(page).to have_content('Bujing')
+    expect(page).to have_content('Total Members: 20')
+
+    within "#members" do
+      expect(page).to have_content('Chan (Fire Nation admiral)')
+      expect(page).to have_content('Allies: Ozai')
+      expect(page).to have_content('Enemies: Earth Kingdom')
+      expect(page).to have_content('Affiliations: Fire Nation Navy')
+
+      expect(page).to have_content('Circus master')
+      expect(page).to have_content('Bujing')
+    end
   end
 end

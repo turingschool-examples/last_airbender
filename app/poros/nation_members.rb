@@ -7,7 +7,7 @@ class NationMembers
 
   def initialize(data)
     @name =         data[:name]
-    @photo =        data[:photoURL]
+    @photo =        data[:photoUrl]
     @allies =       data[:allies][0]
     @enemies =      data[:enemies][0]
     @affiliations = data[:affiliations]

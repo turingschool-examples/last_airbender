@@ -19,9 +19,11 @@ RSpec.describe 'Avatar Kingdom Show Page' do
     visit "/"
 
     select "Fire Nation", from: :nation
-    click_button "Submit"
+    click_button "Search For Members"
 
     expect(current_path).to eq("/search")
-    expect(page).to have_content()
+    expect(page).to have_content('Chan (Fire Nation admiral)')
+    expect(page).to have_content('Circus master')
+    expect(page).to have_content('Bujing')
   end
 end

@@ -9,9 +9,7 @@ RSpec.describe 'Search Controller' do
       click_on 'Search For Members'
 
       expect(current_path).to eq(search_path)
-      # require "pry"; binding.pry
-      # expect(params[:nation].present?).to be(true)
-      # expect(@result.count).to eq(98)
+      expect(page).to have_content("Total Members of Fire Nation: 111")
     end
   end
 end

@@ -1,8 +1,8 @@
 class SearchController < ApplicationController
 
   def index
-    # require "pry"; binding.pry
     search_criteria = params[:nation]
+    @characters = AvatarService.characters(AvatarService.render_request(search_criteria))
   end
 
 end

@@ -17,8 +17,15 @@ RSpec.describe 'welcome page' do
 #   - The list of allies or "None"
 #   - The list of enemies or "None"
 #   - Any affiliations that the member has
-  describe 'as a user when i visit /'
-    it 'can search for members and return a list of people who live in the fire nation' do
-      
+  describe 'as a user when i visit /' do
+    it 'has a search bar and can search for members of a given nation' do
+      expect(page).to have_field(:nation)
+      expect(page).to have_button('Search For Members')
+
+      select 'Water Tribes', :from => "nation"
+      click_on 'Search For Members'
+
+      expect(current_path).to eq(search_path)
     end
+  end
 end

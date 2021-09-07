@@ -13,7 +13,17 @@
  *= require_tree .
  *= require_self
  */
-
+ @import url('https://fonts.googleapis.com/css?family=Parisienne|Quicksand&display=swap');
+ html, body {
+ background-image: image-url('/assets/dogbeach.jpg');
+ height: 100%;
+ width: 100%;
+ margin: 0;
+ background-repeat: no-repeat;
+ background-position: bottom;
+ background-size: cover;
+ background-attachment: fixed;
+}
  .navbar {
     background-color: #333;
     overflow: hidden;
@@ -35,6 +45,14 @@
 .navbar a.active {
     background-color: #4CAF50;
     color: white;
+}
+
+.navbar-custom {
+	background-color: #ffffff55;
+}
+
+.custom {
+	background-color: #ffffffa1;
 }
 
 .navbar-brand {

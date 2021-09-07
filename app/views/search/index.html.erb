@@ -1,20 +1,35 @@
-<h1>Total Members of Fire Nation: <%= @total_chars %> </h1>
-
-<% @chars25.each do |character|  %><br/><br/>
-
-  <h3><%= character.name  %></h3>
-  <% if character.image %>
-  <h4><img src="<%= character.image %>" width=70%></h4>
+<div align="center">
+  <h1>Total Members of Fire Nation: <%= @total_chars %> </h1>
+</div>
+<% @chars25.each_with_index do |character, index|  %><br/><br/>
+<div align="center">
+  <div id="character-<%= index %>" class="card navbar-custom"  style="width: 30rem;">
+    <div class="card-body">
+      <h5 class="card-title">
+        <%= character.name  %></h5>
+    <% if character.image %>
+    <h4><img src="<%= character.image %>" width=70%></h4><br/>
+    <% end %>
+    Allies:
+    <% if !character.allies.empty? %>
+      <h6 class="card-subtitle mb-2"> <% character.allies.each do |ally| %>
+      <%= ally %>
+      <% end %></h6>
+    <% else %>
+      <h6 class="card-subtitle mb-2">Allies: None</h6><br/>
+    <% end %>
+    Enemies:
+    <% if !character.enemies.empty? %>
+      <h6 class="card-subtitle mb-2 "><% character.enemies.each do |enemy|  %>
+      <%= enemy  %></h6>
+      <% end %>
+    <% else %>
+      <h6 class="card-subtitle mb-2">Enemies: None</h6>
+    <% end %>
+    Affiliations:
+      <h6 class="card-subtitle mb-2"><%= character.affiliation  %></h6><br/>
+    </div>
+    </div>
   <% end %>
-  <% if !character.allies.empty? %>
-    <h4>Allies: <%= character.allies  %></h4>
-  <% else %>
-    <h4>Allies: None</h4>
-  <% end %>
-  <% if !character.enemies.empty? %>
-    <h4>Enemies: <%= character.enemies  %></h4>
-  <% else %>
-    <h4>Enemies: None</h4>
-  <% end %>
-  <h4>Affiliations: <%= character.affiliation  %></h4>
-<% end %>
+  <br/><br/><br/>
+</div>

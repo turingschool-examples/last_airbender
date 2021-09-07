@@ -12,9 +12,16 @@
     <p id="affiliation">Affiliation: <%= character[:affiliation] %></p>
 
     <p id="photo">Image: <%= character[:photo_url] %></p>
-
-    <p id="allies">Allies: <%= character[:allies] %></p>
-    <p id="enemies">Enemies: <%= character[:enemies] %></p>
+    <% if character[:allies].length == 0 %>
+      <p id="allies">Allies: none</p>
+    <% else %>
+      <p id="allies">Allies: <%= character[:allies] %></p>
+    <% end %>
+    <% if character[:enemies].length == 0 %>
+      <p id="enemies">Enemies: none</p>
+    <% else %>
+      <p id="enemies">Enemies: <%= character[:enemies] %></p>
+    <% end %>
     <br>
   </div>
 <% end %>

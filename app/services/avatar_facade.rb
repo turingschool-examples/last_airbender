@@ -1,4 +1,4 @@
-class AvatarService
+class AvatarFacade
   def initialize; end
 
   def self.render_request(search)
@@ -25,8 +25,8 @@ class AvatarService
     character_hash[:name] = character['name']
     character_hash[:affiliation] = character['affiliation']
     character_hash[:photo_url] = character['photoUrl']
-    character_hash[:allies] = character['allies']
-    character_hash[:enemies] = character['enemies']
+    character_hash[:allies] = character['allies'].to_s[1..-2]
+    character_hash[:enemies] = character['enemies'].to_s[1..-2]
     character_hash
   end
 end

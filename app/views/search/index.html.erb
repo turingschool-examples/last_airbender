@@ -1,1 +1,18 @@
-<%= @chars.count  %>
+<h1>Total Members of Fire Nation: <%= @chars.count  %> </h1>
+
+<% @chars25.each do |character|  %>
+  <% if character.image %>
+  <h4><img src="<%= character.image %>" width=70%></h4>
+  <% end %>
+  <h3><%= character.name  %></h3>
+  <% if !character.allies.empty? %>
+    <h4>Allies: <%= character.allies  %></h4>
+  <% else %>
+    <h4>Allies: None</h4>
+  <% end %>
+  <% if !character.enemies.empty? %>
+    <h4>Enemies: <%= character.enemies  %></h4>
+  <% else %>
+    <h4>Enemies: None</h4>
+  <% end %>
+<% end %>

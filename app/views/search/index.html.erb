@@ -1,1 +1,13 @@
-yo
+<section id="character">
+<% @characters.each do |character| %>
+  <%= image_tag character.photoUrl unless character.photoUrl == nil %><br>
+  Name:<%= character.name %><br>
+  Allies: <% character.allies.each do |ally| %>
+    <%= ally %><br>
+  <% end %>
+  Enemies:<% character.enemies.each do |enemy| %>
+    <%= enemy %><br>
+  <% end %>
+  Affiliation:<%= character.affiliation %><br><br><br>
+<% end %>
+</section>

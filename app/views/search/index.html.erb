@@ -4,6 +4,9 @@
 
 <% @characters[0..24].each do |character| %>
   <div id="character-id-<%= character.id %>">
+    <% if !character.photo.nil? %>
+      <img src="<%= character.photo %>">
+    <% end %>
     <h3><%= character.name %></h3>
     <p>Allies:
       <% if character.allies.length == 0 %>
@@ -17,6 +20,7 @@
       <% else %>
         <%= character.enemies.join(", ") %></p>
       <% end %>
-    <p>Affiliation: <%= character.affiliation %></p><br>
+    <p>Affiliation: <%= character.affiliation %></p>
+    <hr><br>
   </div>
 <% end %>

@@ -1,11 +1,12 @@
 class Character
-  attr_reader :id, :allies, :enemies, :name, :affiliation
+  attr_reader :id, :allies, :enemies, :name, :affiliation, :photo
 
   def initialize(hash)
     @id = hash[:_id]
-    @allies = hash[:allies] # => array of strings
-    @enemies = hash[:enemies] # => array of strings
+    @allies = hash[:allies]
+    @enemies = hash[:enemies]
     @name = hash[:name]
     @affiliation = hash[:affiliation]
+    @photo = hash[:photoUrl]
   end
 end

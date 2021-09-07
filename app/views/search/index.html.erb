@@ -1,0 +1,13 @@
+<h1>Search Results</h1>
+<h1>Total Characters: <%= @characters.count %></h1>
+<h1>Total Shown: <%= @characters[0..24].count %></h1>
+<% @characters[0..24].each do |character| %>
+  <h3>Name: <%= character.name %></h3>
+  <% if character.has_image? %>
+    <%= image_tag character.image %>
+  <% end %>
+  <p>Allies: <%= character.display_allies %></p>
+  <p>Enemies: <%= character.display_enemies %></p>
+  <p>Affiliation: <%= character.affiliation %></p>
+  <br>
+<% end %>

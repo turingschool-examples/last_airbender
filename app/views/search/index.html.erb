@@ -1,4 +1,14 @@
-<h1>Results</h1>
+<h1><%= @nation %></h1>
 <hr><br>
 
 <h2>Total Inhabitants: <%= @inhabitants.count %></h2>
+
+<section id="first-25">
+  <% @inhabitants.first(25).each do |inhabitant| %>
+    <h3 id="name"><%= inhabitant[:name] %></h3>
+    <img src=<%=inhabitant[:photoUrl]%> alt="Character Image">
+    <p>Allies: <%= inhabitant[:allies].join(', ') %></p>
+    <p>Enemies: <%= inhabitant[:enemies].join(', ') %></p>
+    <p>Affiliation: <%= inhabitant[:affiliation] %></p>
+  <% end %>
+</section>

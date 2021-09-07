@@ -7,7 +7,8 @@ describe 'welcome index page' do
 
       context 'and I select "Fire Nation" from the select field and I click "Search For Members"' do
         let(:nation) { 'Fire Nation' }
-        let(:total_number) { 20 }
+        let(:total_number) { 97 }
+
 
         before do
           select nation, from: :nation
@@ -26,12 +27,29 @@ describe 'welcome index page' do
           expect(page).to have_content('Members of the Fire Nation')
         end
 
-        xit 'displays the details of each member' do
-          members.each do |member|
-            expect(page).to have_content(member.name)
-            expect(page).to have_content(member.allies) # or "None"
-            expect(page).to have_content(member.enemies) # or "None"
-            expect(page).to have_content(member.affiliations)
+        it 'displays the details of each member' do
+          fire_nation_members = AirbenderFacade.nation_members('fire_nation')[0..24]
+
+          expect(fire_nation_members.size).to eq(25)
+
+          fire_nation_members[0..24].each do |member|
+            within "#member-#{member.id}" do
+              expect(page).to have_content(member.name)
+
+              if member.allies.empty?
+                expect(page).to have_content('None')
+              else
+                expect(page).to have_content(member.allies.join(', ').strip)
+              end
+
+              if member.enemies.empty?
+                expect(page).to have_content('None')
+              else
+                expect(page).to have_content(member.enemies.join(', ').strip)
+              end
+
+              expect(page).to have_content(member.affiliation)
+            end
           end
         end
       end

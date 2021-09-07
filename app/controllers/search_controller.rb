@@ -1,7 +1,7 @@
 class SearchController < ApplicationController
 
   def index
-    require 'pry';binding.pry
+    @characters = AvatarFacade.characters_by_nation(params[:nation])
   end
 
 end

@@ -3,6 +3,7 @@
 <p>First 25 Members</p>
 
 <% @members.each do |member| %>
+<img src="<%= member.photo %>" alt="image" width="100" height="100">
   <p><%= member.name %></p>
   <p><%= member.affiliation %></p>
   <p>Allies: </p>

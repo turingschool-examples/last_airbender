@@ -13,23 +13,27 @@
         <%= image_tag(person.photo_url, class: "airbender") %>
       <% end %>
 
-      <p><b>Allies:</b></p>
-      <% if person.allies.count > 0 %>
-        <% person.allies.each do |ally| %>
-          <p><%= ally %></p>
-        <% end  %>
-      <% else %>
-        <p>None</p>
-      <% end %>
+      <div id='allies'>
+        <p><b>Allies:</b></p>
+        <% if person.allies.count > 0 %>
+          <% person.allies.each do |ally| %>
+            <p><%= ally %></p>
+          <% end  %>
+        <% else %>
+          <p>None</p>
+        <% end %>
+      </div>
 
-      <p><b>Enemies:</b></p>
-      <% if person.enemies.count > 0 %>
-        <% person.enemies.each do |enemy| %>
-          <p><%= enemy %></p>
-        <% end  %>
-      <% else %>
-        <p>None</p>
-      <% end %>
+      <div id='enemies'>
+        <p><b>Enemies:</b></p>
+        <% if person.enemies.count > 0 %>
+          <% person.enemies.each do |enemy| %>
+            <p><%= enemy %></p>
+          <% end  %>
+        <% else %>
+          <p>None</p>
+        <% end %>
+      </div>
 
       <p><b>Affiliation:</b> <%= person.affiliation %></p>
       <br>

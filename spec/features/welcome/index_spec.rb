@@ -20,14 +20,18 @@ describe 'welcome index page' do
         end
 
         it 'displays the total number of people who live in the Fire Nation' do
-          expect(page).to have_content("Total Number of #{nation} Members: #{total_member_count}")
+          within '#member-count' do
+            expect(page).to have_content("Total Number of #{nation} Members: #{total_member_count}")
+          end
         end
 
-        it 'lists up to the first 25 members of the Fire Nation' do
-          expect(page).to have_content('Members of the Fire Nation')
+        it 'displays a header for the members' do
+          within '#members' do
+            expect(page).to have_content('Members of the Fire Nation')
+          end
         end
 
-        it 'displays the details of each member' do
+        it 'displays the details of each of the first 25 members' do
           expect(fire_nation_members[0..24].size).to eq(25)
 
           fire_nation_members[0..24].each do |member|

@@ -1,4 +1,6 @@
-Total Number of <%= @nation.titleize %> Members: <%= @members.size %>
+<div id='member-count'>
+  Total Number of <%= @nation.titleize %> Members: <%= @members.size %>
+</div>
 
 <div id='members'>
   <h1>Members of the <%= @nation.titleize %></h1>
@@ -9,7 +11,7 @@ Total Number of <%= @nation.titleize %> Members: <%= @members.size %>
         <%= image_tag member.photo_url, alt: "Image of #{member.name}", id: "image-#{member.id}" %>
       <% end %>
 
-      <p>Name: <%= member.name %></p>
+      <h3><%= member.name %></h3>
 
       <% if member.allies.empty? %>
         <p>Allies: None</p>

@@ -1,0 +1,8 @@
+<h2>Search by Nation Name</h2>
+<%= @member_search.each do |member| %>
+  <p><%= member.name %>
+  <p><%= member.allies %>
+  <p><%= member.enemies %>
+  <p><%= member.affiliation %>
+  <% end %>
+<% end %>

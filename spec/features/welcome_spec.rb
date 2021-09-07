@@ -5,11 +5,11 @@ RSpec.describe 'welcome page' do
     visit root_path
   end
   # As a user,
-  # When I visit "/"
-  # And I Select "Fire Nation" from the select field
-  # (Note: Use the existing select field)
-  # And I click "Search For Members"
-  # Then I should be on page "/search"
+  # When I visit "/" x
+  # And I Select "Fire Nation" from the select field x
+  # (Note: Use the existing select field) x
+  # And I click "Search For Members" x
+  # Then I should be on page "/search" x
   # Then I should see the total number of people who live in the Fire Nation. (should be close to 100)
   # And I should see a list with the detailed information for the first 25 members of the Fire Nation.
 #   And for each of the members I should see:
@@ -22,10 +22,18 @@ RSpec.describe 'welcome page' do
       expect(page).to have_field(:nation)
       expect(page).to have_button('Search For Members')
 
-      select 'Water Tribes', :from => "nation"
+      select 'Fire Nation', :from => "nation"
       click_on 'Search For Members'
 
       expect(current_path).to eq(search_path)
+    end
+
+    it 'can display the total number of people who live in a given nation' do
+      select 'Fire Nation', :from => "nation"
+      click_on 'Search For Members'
+
+      expect(current_path).to eq(search_path)
+      # expect page to have member's name/allies/enemies/affiliation
     end
   end
 end

@@ -5,4 +5,8 @@ class SearchFacade
       Person.new(person)
     end
   end
+
+  def self.nation_member_count(nation)
+    json = SearchService.member_count(nation)
+  end
 end

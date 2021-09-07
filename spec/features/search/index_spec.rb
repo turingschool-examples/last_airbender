@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'the search index' do
   describe 'display' do
-    it 'shows list of fire nation members' do
+    it 'shows list of fire nation members and total count' do
       visit root_path
 
       select 'Fire Nation', from: :nation
@@ -11,6 +11,7 @@ RSpec.describe 'the search index' do
 
       within('#header') do
         expect(page).to have_content('Fire Nation')
+        expect(page).to have_content('Total Members: 97')
       end
 
       within('#5cf5679a915ecad153ab68fd') do

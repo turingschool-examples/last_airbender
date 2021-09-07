@@ -23,6 +23,7 @@ describe AirbenderService, type: :service do
         expect(member_data[:enemies].first).to be_a(String)
 
         # NOTE: Guard clause used because not all members have a photo URL
+        #       When a photo URL is not available, it will default to nil
         unless member_data[:photoUrl].nil?
           expect(member_data).to have_key(:photoUrl)
           expect(member_data[:photoUrl]).to be_a(String)

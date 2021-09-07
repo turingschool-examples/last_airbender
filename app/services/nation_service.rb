@@ -1,12 +1,10 @@
 class NationService
-  def self.nation_search(nation)
-    response = conn.get("/api/v1/characters?affiliation=#{nation}")
+  def self.nation_search(nation, per_page, page)
+  # def self.nation_search(nation)
+    # response = conn.get("/api/v1/characters?affiliation=#{nation}&perPage=97&page=1")
+    response = conn.get("/api/v1/characters?affiliation=#{nation}&perPage=#{per_page}&page=#{page}") #make more dynamic
     parse_json(response)
   end
-
-  # def self.nation_search(nation)
-  #   response = Faraday.get("https://last-airbender-api.herokuapp.com/api/v1/characters?affiliation=#{nation}") do |req|
-  # end
 
   private
 

@@ -1,0 +1,8 @@
+<h4>Total Memebers: </h4>
+
+<% @nation_members.each do |member| %>
+  <p><%= member.name %></p>
+  <p><%= member.allies %></p>
+  <p><%= member.enemies %></p>
+  <p><%= member.affiliations %></p>
+<% end %>

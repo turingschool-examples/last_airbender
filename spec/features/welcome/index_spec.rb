@@ -15,18 +15,22 @@ RSpec.describe 'welcome index page' do
     # And I should see a list with the detailed information for the first 25 members of the Fire Nation.
     expect(page).to have_css('div', :count => 20)
 
-    # And for each of the members I should see:
+    # sad path for photo
     within '#character-id-5cf5679a915ecad153ab68fd' do
-      # - The name of the member (and their photo, if they have one)
       expect(page).to have_content('Chan (Fire Nation admiral)')
       expect(page).to_not have_css('img src', :count => 1)
-
-      # - The list of allies or "None"
       expect(page).to have_content('Allies: Ozai')
-      # - The list of enemies or "None"
       expect(page).to have_content('Enemies: Earth Kingdom')
-      # - Any affiliations that the member has  end
       expect(page).to have_content('Affiliation: Fire Nation Navy')
+    end
+
+    # happy path for photo
+    within '#character-id-5cf5679a915ecad153ab68cc' do
+      expect(page).to have_content('Afiko')
+      expect(page).to have_css('img src', :count => 1)
+      expect(page).to have_content('Allies: Fire Nation')
+      expect(page).to have_content('Enemies: Aang')
+      expect(page).to have_content('Affiliation: Fire Nation')
     end
   end
 end

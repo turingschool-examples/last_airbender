@@ -20,7 +20,12 @@
       <% else %>
         <%= character.enemies.join(", ") %></p>
       <% end %>
-    <p>Affiliation: <%= character.affiliation %></p>
+    <p>Affiliation:
+      <% if character.affiliation.length == 0 %>
+        None
+      <% else %>
+        <%= character.affiliation %></p>
+      <% end %>
     <hr><br>
   </div>
 <% end %>

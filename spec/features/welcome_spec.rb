@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe 'welcome page' do
   before :each do
     visit root_path
+    @member1 = Member.new(data = {name: "Kuzon", allies: ["Aang", "Bumi"], enemies: ["Ozai"], affiliation: "Fire Nation"})
   end
   # As a user,
   # When I visit "/" x
@@ -34,6 +35,11 @@ RSpec.describe 'welcome page' do
 
       expect(current_path).to eq(search_path)
       # expect page to have member's name/allies/enemies/affiliation
+      save_and_open_page
+      expect(page).to have_content(@member1.name)
+      expect(page).to have_content(@member1.allies)
+      expect(page).to have_content(@member1.enemies)
+      expect(page).to have_content(@member1.affiliation)
     end
   end
 end

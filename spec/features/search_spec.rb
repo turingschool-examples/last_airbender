@@ -43,8 +43,8 @@ RSpec.describe 'character search' do
     # save_and_open_page
     within(first('#character')) do
       expect(page).to have_css('#name')
-      expect(page).to have_css('#affiliation')
       expect(page).to have_css('#photo')
+      expect(page).to have_css('#affiliation')
       expect(page).to have_css('#allies')
       expect(page).to have_css('#enemies')
     end

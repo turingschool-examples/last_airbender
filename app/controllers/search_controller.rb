@@ -5,7 +5,5 @@ class SearchController < ApplicationController
     @members = data.map do |member| 
       Member.new(member)
     end
-
-    binding.pry
   end
 end

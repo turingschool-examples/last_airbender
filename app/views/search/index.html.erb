@@ -1,0 +1,35 @@
+<section id="count">
+  <p>
+    Member Count: <%= @members.count %>
+  </p>
+</section>
+<section id='detailed'>
+  <table>
+    <tr>
+      <th>name</th>
+      <th>photo</th>
+      <th>allies</th>
+      <th>enemies</th>
+      <th>affiliation</th>
+    </tr>
+    <% @members.each do |member| %>
+    <tr>
+      <td>
+        <%= member.name %>
+      </td>
+      <td>
+        <img src="<%= member.photo_url %>" alt="" style="height: 100px; width:100px;">
+      </td>
+      <td>
+        <%= member.allies %>
+      </td>
+      <td>
+        <%= member.enemies %>
+      </td>
+      <td>
+        <%= member.affiliation %>
+      </td>
+    </tr>
+    <% end %>
+  </table>
+</section>

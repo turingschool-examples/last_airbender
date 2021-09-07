@@ -10,6 +10,10 @@ RSpec.describe 'Search' do
       click_on "Search For Members"
 
       expect(current_path).to eq(search_path)
+      expect(current_path).to have_content("Total Number of People:")
     end
   end
+
+  #continue to test for view features such as 'empty' or 'none'
+  #display all attributes
 end

@@ -4,12 +4,13 @@
 
 <h2>Members (in alphabetical order):</h2>
 <% @people.first(25).each do |person| %>
+  <hr>
   <div id="<%= person.id %>">
-    <h4><%= person.name %></h4>
+    <h3><%= person.name %></h3>
     <img src= '<%="#{person.photo}"%>' alt='<%="Photo of #{person.name}"%>' class='photo' >
     <p>Affiliation: <%= person.affiliation %></p>
     <div class="allies">
-      <h5>Allies:</h5>
+      <h4>Allies:</h4>
       <% if person.allies.empty? %>
         <p>None</p>
       <% end %>

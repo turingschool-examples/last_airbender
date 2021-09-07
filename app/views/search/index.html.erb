@@ -1,0 +1,17 @@
+<% @search.each do |character| %>
+  <br><br>
+  <h3><%= character.name %> </h3><br>
+  <%= image_tag "#{character.photo}" %> <br>
+  Allies: <% if character.allies == nil %>
+            <%= "None" %><br>
+          <% else %>
+            <%= character.allies %><br>
+          <% end %>
+  Enemies: <% if character.enemies == nil %>
+              <%= "None" %><br>
+            <% else %>
+              <%= character.enemies %><br>
+            <% end %>
+  Affiliation: <%= character.affiliation %> <br>
+  ______________________________________________
+<% end %>

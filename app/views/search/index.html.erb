@@ -6,7 +6,7 @@ Total Number of <%= @nation.titleize %> Members: <%= @members.size %>
   <% @members[0..24].each do |member| %>
     <div id='member-<%= member.id %>'>
       <% unless member.photo_url.nil? %>
-        <%= image_tag member.photo_url, alt: "Image of #{member.name}" %>
+        <%= image_tag member.photo_url, alt: "Image of #{member.name}", id: "image-#{member.id}" %>
       <% end %>
 
       <p>Name: <%= member.name %></p>

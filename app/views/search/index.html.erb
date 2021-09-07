@@ -7,8 +7,16 @@
   <% @inhabitants.first(25).each do |inhabitant| %>
     <h3 id="name"><%= inhabitant[:name] %></h3>
     <img src=<%=inhabitant[:photoUrl]%> alt="Character Image">
-    <p>Allies: <%= inhabitant[:allies].join(', ') %></p>
-    <p>Enemies: <%= inhabitant[:enemies].join(', ') %></p>
+    <% if inhabitant[:allies].count > 0 %>
+      <p>Allies: <%= inhabitant[:allies].join(', ') %></p>
+    <% else %>
+      <p>Allies: None</p>
+    <% end %>
+    <% if inhabitant[:enemies].count > 0 %>
+      <p>Enemies: <%= inhabitant[:enemies].join(', ') %></p>
+    <% else %>
+      <p>Enemies: None</p>
+    <% end %>
     <p>Affiliation: <%= inhabitant[:affiliation] %></p>
   <% end %>
 </section>

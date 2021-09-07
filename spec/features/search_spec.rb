@@ -1,6 +1,14 @@
 require 'rails_helper'
 
 RSpec.describe 'character search' do
+  before :each do
+    @search_critieria = 'FIRE+NATION'
+
+    @character_blob = File.read('./spec/fixtures/fire_nation_response.json')
+    @character_request = stub_request(:get, "https://last-airbender-api.herokuapp.com/api/v1/characters?affiliation=#{@search_criteria}").
+      to_return(status: 200, body: @character_blob)
+    allow(AvatarService).to receive(:render_request).and_return(@character_request.response)
+  end
   # As a user,
   # When I visit "/"
   # And I Select "Fire Nation" from the select field

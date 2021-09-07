@@ -1,0 +1,39 @@
+<h1 style="text-align:center;"><%= @nation %></h1>
+
+<p style="text-align:center;">Total Number of People: <%= @count %></p>
+
+<div>
+  <% @members.each do |member| %>
+  <div>
+    <div>
+      <% unless member.photo.nil? %>
+        <%= image_tag(member.photo, :alt => 'Character Photo') %>
+      <% end %>
+      <div id="member-<%= member.name %>">
+        <h3>Name: <%= member.name %></h3>
+        <p>Allies: </p>
+        <% if member.allies.empty? %>
+          <p>None</p>
+        <% else %>
+          <ul>
+            <% member.allies.each do |ally| %>
+              <li><%= ally %></li>
+            <% end %>
+          </ul>
+          <% end %>
+        <p>Enemies: </p>
+        <% if member.enemies.empty? %>
+          <p>None</p>
+        <% else %>
+          <ul>
+            <% member.enemies.each do |enemy| %>
+              <li><%= enemy %></li>
+            <% end %>
+          </ul>
+        <% end %>
+        <p>Affiliation: <%= member.affiliation %></p>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>

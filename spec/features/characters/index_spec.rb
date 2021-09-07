@@ -10,12 +10,12 @@ RSpec.describe 'Character Index Page' do
 
     expect(current_path).to eq(search_path)
 
-    within "#{character.id}" do
-      expect(page).to have_content(character.name)
-      expect(page).to have_content(character.photo)
-      expect(page).to have_content(character.allies)
-      expect(page).to have_content(character.enemies)
-      expect(page).to have_content(character.affiliation)
+    within "#character" do
+      expect(page).to have_content("Circus master")
+      expect(page).to have_css("img[src*='https://vignette.wikia.nocookie.net/avatar/images/a/a5/Circus_master.png/revision/latest?cb=20130706153819']")
+      expect(page).to have_content("Ty Lee")
+      expect(page).to have_content("Appa")
+      expect(page).to have_content("Fire Nation circus")
     end
   end
 end

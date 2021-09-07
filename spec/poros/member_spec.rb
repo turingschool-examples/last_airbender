@@ -7,7 +7,7 @@ require 'rails_helper'
         enemies: ["Earth Kingdom"],
         name: "Chan (Fire Nation admiral)",
         affiliation: "Fire Nation Navy",
-        photoUrl": "https://vignette.wikia.nocookie.net/avatar/images/4/48/Banished_servant.png/revision/latest?cb=20120222022610"}
+        photoUrl: "https://vignette.wikia.nocookie.net/avatar/images/4/48/Banished_servant.png/revision/latest?cb=20120222022610" }
 
     member = Member.new(attributes)
 

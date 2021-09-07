@@ -1,0 +1,22 @@
+<h1>Last Airbender</h1>
+
+<h3><%= @nation %> has <%= @member_count %> members</h3>
+
+<hr>
+<h3>First 25 Members</h3>
+<% @members.each do |member| %>
+  <h5>Name: <%= member.name %> </h5>
+  <p>Allies:</p>
+    <% member.allies.each do |ally| %>
+      <li><%= ally %></li>
+    <% end %>
+  <br>
+  <p>Enemies:</p>
+  <% member.enemies.each do |enemy| %>
+    <li><%= enemy %></li>
+  <% end %>
+  <br>
+  <p>Affiliation:</p>
+  <li><%= member.affiliation %></li>
+  <br>
+<% end %>

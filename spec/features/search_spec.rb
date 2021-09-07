@@ -5,9 +5,10 @@ RSpec.describe 'character search' do
     @search_critieria = 'FIRE+NATION'
 
     @character_blob = File.read('./spec/fixtures/fire_nation_response.json')
-    @character_request = stub_request(:get, "https://last-airbender-api.herokuapp.com/api/v1/characters?affiliation=#{@search_criteria}").
-      to_return(status: 200, body: @character_blob)
-    allow(AvatarService).to receive(:render_request).and_return(@character_request.response)
+    @character_request = stub_request(:get, "https://last-airbender-api.herokuapp.com/api/v1/characters?affiliation=#{@search_criteria}")
+      .to_return(status: 200, body: @character_blob)
+    allow(AvatarService).to receive(:render_request).with(@search_criteria)
+      .and_return(JSON.parse(@character_request.response.body))
   end
   # As a user,
   # When I visit "/"
@@ -30,9 +31,10 @@ RSpec.describe 'character search' do
     click_on 'Search For Members'
 
     expect(current_path).to eq search_path
+    expect(page).to have_content('Search Results:')
 
-    # characters = AvatarService.character_count
-    # expect(page).to have_content("#{characters} total characters")
+    characters = AvatarService.render_request(@search_criteria)
+    expect(page).to have_content("#{characters.length} total characters")
 
     expect(page).to have_css('#character', count: 25)
     # save_and_open_page

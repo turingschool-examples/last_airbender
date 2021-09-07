@@ -4,7 +4,7 @@ describe AirbenderService, type: :service do
   describe 'class methods' do
     describe '.nation_members' do
       it 'returns nation members by nation', :aggregate_failures do
-        members = AirbenderService.nation_members('fire nation')
+        members = AirbenderService.nation_members('fire_nation')
         expect(members).to be_an(Array)
 
         member_data = members.second

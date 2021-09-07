@@ -4,6 +4,7 @@ class AirbenderService
   end
 
   def self.nation_members(nation)
+    nation = nation.gsub('_', '+')
     response = conn.get("/api/v1/characters?affiliation=#{nation}")
 
     JSON.parse(response.body, symbolize_names: true)

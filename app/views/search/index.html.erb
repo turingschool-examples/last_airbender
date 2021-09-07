@@ -1,0 +1,29 @@
+Total Number of <%= @nation.titleize %> Members: <%= @members.size %>
+
+<div id='members'>
+  <h1>Members of the <%= @nation.titleize %></h1>
+
+  <% @members[0..24].each do |member| %>
+    <div id='member-<%= member.id %>'>
+      <% unless member.photo_url.nil? %>
+        <%= image_tag member.photo_url, alt: "Image of #{member.name}" %>
+      <% end %>
+
+      <p>Name: <%= member.name %></p>
+
+      <% if member.allies.empty? %>
+        <p>Allies: None</p>
+      <% else %>
+        <p>Allies: <%= member.allies.join(', ') %></p>
+      <% end %>
+
+      <% if member.enemies.empty? %>
+        <p>Enemies: None</p>
+      <% else %>
+        <p>Enemies: <%= member.enemies.join(', ') %></p>
+      <% end %>
+
+      <p>Affiliation: <%= member.affiliation %></p>
+    </div>
+  <% end %>
+</div>

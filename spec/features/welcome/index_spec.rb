@@ -18,7 +18,7 @@ RSpec.describe 'welcome index page' do
     # And for each of the members I should see:
     within '#character-id-5cf5679a915ecad153ab68fd' do
       # - The name of the member (and their photo, if they have one)
-      expect(page).to have_content('Name: Chan (Fire Nation admiral)')
+      expect(page).to have_content('Chan (Fire Nation admiral)')
       # - The list of allies or "None"
       expect(page).to have_content('Allies: Ozai')
       # - The list of enemies or "None"

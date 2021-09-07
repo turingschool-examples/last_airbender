@@ -1,11 +1,12 @@
 class Person
-  attr_reader :name, :photo_url, :allies, :enemies, :affiliation
-  
+  attr_reader :name, :photo_url, :allies, :enemies, :affiliation, :id
+
   def initialize(data)
     @name = data[:name]
     @photo_url = data[:photoUrl]
     @allies = data[:allies]
     @enemies = data[:enemies]
-    @affiliations = data[:affiliation]
+    @affiliation = data[:affiliation]
+    @id = data[:_id]
   end
 end

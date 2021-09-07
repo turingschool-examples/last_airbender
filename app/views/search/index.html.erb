@@ -1,0 +1,37 @@
+<div id='header'>
+  <h1><%= @nation.titleize %></h1>
+</div>
+
+<div id='members'>
+  <h2>Members</h2>
+  <% @people.each do |person| %>
+    <div id="<%= person.id %>">
+
+      <h3><%= person.name %></h3>
+      <% if person.photo_url != nil %>
+        <%= image_tag(person.photo_url, class: "airbender") %>
+      <% end %>
+
+      <p><b>Allies:</b></p>
+      <% if person.allies.count > 0 %>
+        <% person.allies.each do |ally| %>
+          <p><%= ally %></p>
+        <% end  %>
+      <% else %>
+        <p>None</p>
+      <% end %>
+
+      <p><b>Enemies:</b></p>
+      <% if person.enemies.count > 0 %>
+        <% person.enemies.each do |enemy| %>
+          <p><%= enemy %></p>
+        <% end  %>
+      <% else %>
+        <p>None</p>
+      <% end %>
+
+      <p><b>Affiliation:</b> <%= person.affiliation %></p>
+      <br>
+    </div>
+  <% end %>
+</div>

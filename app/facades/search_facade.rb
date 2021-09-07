@@ -1,10 +1,12 @@
 class SearchFacade
   def self.chars_from_fire_nation
     result = SearchService.get_all_chars_for_fire_nation
-    require "pry"; binding.pry
-    result.map do |char|
-      Character.new(char)
+    result.map do |character|
+      Character.new(character)
     end
-    require "pry"; binding.pry
+  end
+
+  def self.twenty_five_in_detail
+    SearchFacade.chars_from_fire_nation[0..24]
   end
 end

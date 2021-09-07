@@ -1,0 +1,16 @@
+<h3><%= @member_count %> Affiliations</h3>
+
+<p>First 25 Members</p>
+
+<% @members.each do |member| %>
+  <p><%= member.name %></p>
+  <p><%= member.affiliation %></p>
+  <p>Allies: </p>
+  <% member.allies.each do |ally| %>
+  <p><%= ally %></p>
+  <% end %>
+  <p>Enemies: </p>
+  <% member.enemies.each do |enemy| %>
+  <p><%= enemy %></p>
+  <% end %>
+<% end %>

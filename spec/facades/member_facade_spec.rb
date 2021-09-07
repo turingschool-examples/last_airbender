@@ -74,8 +74,12 @@ require 'rails_helper'
      expect(MemberFacade.count_affiliations(search)).to eq(97)
    end
 
-   it 'can count the number of affiliations of a nation' do
+   it 'can create first 25 members of the associated nation' do
      search = 'Fire Nation'
-     expect(MemberFacade.count_affiliations(search)).to eq(97)
+     members = MemberFacade.create_members(search)
+     expect(members.count).to eq(25)
+     members.each do |member|
+       expect(member).to be_an_instance_of(Member)
+    end
    end
  end

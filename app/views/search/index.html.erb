@@ -4,19 +4,27 @@
 
 <h2>Members (in alphabetical order):</h2>
 <% @people.first(25).each do |person| %>
-  <h4><%= person.name %></h4>
-  <img src= <%="#{person.photo}"%> alt= <%="Photo of #{person.name}"%> id= <%= "#{person.id}" %> >
-  <p>Affiliation: <%= person.affiliation %></p>
-  <div class="allies" id = <%="#{person.id}"%>>
-    <h5>Allies:</h5>
-    <% person.allies.each do |ally| %>
-      <p> <%= ally %> </p>
-    <% end %>
-  </div>
-  <div class="enemies" id = <%="#{person.id}"%>>
-    <h5>Enemies:</h5>
-    <% person.enemies.each do |enemy| %>
-      <p> <%= enemy %> </p>
-    <% end %>
+  <div id="<%= person.id %>">
+    <h4><%= person.name %></h4>
+    <img src= '<%="#{person.photo}"%>' alt='<%="Photo of #{person.name}"%>' class='photo' >
+    <p>Affiliation: <%= person.affiliation %></p>
+    <div class="allies">
+      <h5>Allies:</h5>
+      <% if person.allies.empty? %>
+        <p>None</p>
+      <% end %>
+      <% person.allies.each do |ally| %>
+        <p> <%= ally %> </p>
+      <% end %>
+    </div>
+    <div class="enemies">
+      <h5>Enemies:</h5>
+      <% if person.enemies.empty? %>
+        <p>None</p>
+      <% end %>
+      <% person.enemies.each do |enemy| %>
+        <p> <%= enemy %> </p>
+      <% end %>
+    </div>
   </div>
 <% end %>

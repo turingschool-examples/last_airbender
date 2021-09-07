@@ -7,7 +7,7 @@ class Person
               :affiliation
   def initialize(data)
     @name = data[:name]
-    @id = data[:id]
+    @id = data[:_id]
     @allies = data[:allies]
     @enemies = data[:enemies]
     @photo = data[:photoUrl]

@@ -5,7 +5,7 @@ class Member
     @id = attrs[:_id]
     @allies = attrs[:allies]
     @enemies = attrs[:enemies]
-    @photo_url = attrs[:photo_url]
+    @photo_url = attrs[:photoUrl]
     @name = attrs[:name]
     @affiliation = attrs[:affiliation]
   end

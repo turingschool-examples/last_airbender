@@ -1,7 +1,9 @@
 class SearchFacade
   def self.nation_search(nation)
     json = SearchService.search(format_nation(nation))
-    binding.pry
+    json.map do |person|
+      Person.new(person)
+    end
   end
 
   def self.format_nation(nation)

@@ -1,5 +1,6 @@
 class SearchController < ApplicationController
   def index
-    SearchFacade.nation_search(params[:nation])
+    test = SearchFacade.nation_search(params[:nation])
+    binding.pry 
   end
 end

@@ -4,7 +4,7 @@ class LastAirbenderService
   end
 
   def self.get_affiliations(query, page)
-    response = conn('https://last-airbender-api.herokuapp.com/api/v1').get('/characters') do |f|
+    response = conn('https://last-airbender-api.herokuapp.com/api/v1/characters').get do |f|
       f.params['affiliation'] = query
       f.params['page'] = page
     end

@@ -1,4 +1,5 @@
 <section id="character">
+  Character Count: <%= @characters.count %><br>
 <% @characters.each do |character| %>
   <%= image_tag character.photoUrl unless character.photoUrl == nil %><br>
   Name:<%= character.name %><br>

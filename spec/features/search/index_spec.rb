@@ -10,6 +10,6 @@ RSpec.describe 'The search index page' do
 
   it 'displays the total number of people who live in the selected nation' do
     expect(current_path).to eq(search_path)
-    expect(page).to have_content('Total number of people: 97')
+    expect(page).to have_content('Total number of members: 97')
   end
 end

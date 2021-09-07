@@ -10,10 +10,10 @@ RSpec.describe 'welcome index page' do
 
     expect(current_path).to eq('/search')
 
-    # Then I should see the total number of people who live in the Fire Nation. (should be close to 100)
     expect(page).to have_content('Total Number of People: 20')
 
     # And I should see a list with the detailed information for the first 25 members of the Fire Nation.
+    expect(page).to have_css('div', :count => 20)
 
     # And for each of the members I should see:
     within '#character-id-5cf5679a915ecad153ab68fd' do

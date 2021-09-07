@@ -2,11 +2,21 @@
 
 <p>Total Number of People: <%= @characters.length %></p><br>
 
-<% @characters.each do |character| %>
+<% @characters[0..24].each do |character| %>
   <div id="character-id-<%= character.id %>">
     <h3><%= character.name %></h3>
-    <p>Allies: <%= character.allies.join(", ") %></p>
-    <p>Enemies: <%= character.enemies.join(", ") %></p>
+    <p>Allies:
+      <% if character.allies.length == 0 %>
+        None
+      <% else %>
+        <%= character.allies.join(", ") %>
+      <% end %></p>
+    <p>Enemies:
+      <% if character.enemies.length == 0 %>
+        None
+      <% else %>
+        <%= character.enemies.join(", ") %></p>
+      <% end %>
     <p>Affiliation: <%= character.affiliation %></p><br>
   </div>
 <% end %>

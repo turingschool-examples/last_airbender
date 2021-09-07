@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'character search' do
   before :each do
-    @search_critieria = 'FIRE+NATION'
+    @search_criteria = 'fire_nation'
 
     @character_blob = File.read('./spec/fixtures/fire_nation_response.json')
     @character_request = stub_request(:get, "https://last-airbender-api.herokuapp.com/api/v1/characters?perPage=100&affiliation=#{@search_criteria}")
@@ -32,6 +32,9 @@ RSpec.describe 'character search' do
     expect(current_path).to eq search_path
     expect(page).to have_content('Search Results:')
 
+    expect(AvatarService.base_url).to eq('https://last-airbender-api.herokuapp.com/api/v1/characters?')
+    expect(AvatarService.reformat_search(@search_criteria)).to eq('FIRE')
+
     characters = AvatarService.render_request(@search_criteria)
     expect(page).to have_content("#{characters.length} total characters")
 
@@ -39,10 +42,10 @@ RSpec.describe 'character search' do
     # save_and_open_page
     within(first('#character')) do
       expect(page).to have_css('#name')
+      expect(page).to have_css('#affiliation')
       expect(page).to have_css('#photo')
       expect(page).to have_css('#allies')
       expect(page).to have_css('#enemies')
-      expect(page).to have_css('#affiliation')
     end
   end
 

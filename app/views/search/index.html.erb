@@ -1,3 +1,20 @@
 <h1>Search Results:</h1>
 <br>
-<h3><%= @characters.length %> total characters</h3>
+<h2><%= @characters.length %> total characters</h2>
+<br>
+<br>
+<% @characters[0..24].each do |character| %>
+  <div id="character">
+    <!-- note - the following are POROS..
+      NOT just data directly from the API response...
+        I just prefer hash syntax over attr_readers!!! -->
+    <h3 id="name">Name: <%= character[:name] %></h3>
+    <p id="affiliation">Affiliation: <%= character[:affiliation] %></p>
+
+    <p id="photo">Image: <%= character[:photo_url] %></p>
+
+    <p id="allies">Allies: <%= character[:allies] %></p>
+    <p id="enemies">Enemies: <%= character[:enemies] %></p>
+    <br>
+  </div>
+<% end %>

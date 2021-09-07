@@ -14,7 +14,7 @@ RSpec.describe Character do
 
   it 'has a photo or nil' do
     nation = 'Fire+Nation'
-    response = LastAirbenderFacade.top_characters(nation)
+    response = LastAirbenderFacade.total_characters(nation)
 
     expect(response.first.photo).to eq(nil)
     expect(response[1].photo).to be_a(String)

@@ -2,8 +2,18 @@ require 'rails_helper'
 
 RSpec.describe 'Search Index Page' do
   it 'can display information about selected nation' do
-    visit search_path
+    visit root_path
 
+    select 'Fire Nation', from: 'nation'
+
+    click_button('Search For Members')
+
+    expect(current_path).to eq(search_path)
+    expect(page).to have_content('fire nation')
+    expect(page).to have_content('Chan')
+    expect(page).to have_content('Ozai')
+    expect(page).to have_content('Earth Kingdom')
+    expect(page).to have_content('Fire Nation Navy')
   end
 end
 

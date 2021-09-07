@@ -5,16 +5,16 @@ RSpec.describe LastAirbenderFacade do
     it 'can get total characters in nation' do
       nation = 'Fire+Nation'
       pages = 5
-      facade = LastAirbenderFacade.total_characters(nation, pages)
+      facade = LastAirbenderFacade.total_characters(nation)
 
       expect(facade.count).to eq(97)
     end
 
     it 'can get first 25 characters by nation' do
       nation = 'Fire+Nation'
-      facade = LastAirbenderFacade.top_characters(nation)
+      facade = LastAirbenderFacade.total_characters(nation)
 
-      expect(facade.count).to eq(25)
+      expect(facade[0..24].count).to eq(25)
     end
   end
 end

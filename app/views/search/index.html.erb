@@ -1,0 +1,32 @@
+<h1><%= @nation %></h1>
+<p>Total people: <%= @characters.length %></p>
+
+<h3>Characters</h3>
+<% @characters[0..24].each do |character| %>
+  <p>Name: <%= character.name %></p>
+  <% if !character.photo.nil? %>
+    <br>
+    <%= image_tag(character.photo) %>
+  <% end %>
+
+  <p>Allies:</p>
+  <% if !character.allies.empty? %>
+    <% character.allies.each do |ally| %>
+      <p><%= ally %></p>
+    <% end %>
+    <% else %>
+      <p>None</p>
+  <% end %>
+
+  <p>Enemies:</p>
+  <% if !character.enemies.empty? %>
+  <% character.enemies.each do |enemy| %>
+    <p><%= enemy %></p>
+    <% end %>
+  <% else %>
+    <p>None</p>
+  <% end %>
+
+  <p>Affiliation: <%= character.affiliation %></p>
+  <hr>
+<% end %>

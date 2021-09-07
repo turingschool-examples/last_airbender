@@ -6,6 +6,7 @@ describe AirbenderService, type: :service do
       it 'returns nation members by nation', :aggregate_failures do
         members = AirbenderService.nation_members('fire_nation')
         expect(members).to be_an(Array)
+        expect(members.size).to be <= 497
 
         member_data = members.second
         expect(member_data).to be_a(Hash)

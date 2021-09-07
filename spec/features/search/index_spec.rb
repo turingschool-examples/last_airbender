@@ -1,14 +1,24 @@
 require 'rails_helper'
 
-RSpec.describe "Search index" do
+RSpec.describe "search index" do
   describe 'navigation' do
-    it 'takes user to /search' do
+    it 'takes user to search_path through selection' do
       visit root_path
-
       select "Fire Nation"
       click_on "Search For Members"
 
       expect(current_path).to eq(search_path)
+    end
+  end
+
+  describe 'search display' do
+    it 'displays total number of inhabitants' do
+      visit root_path
+      select "Fire Nation"
+      click_on "Search For Members"
+      
+      expect(current_path).to eq(search_path)
+      expect(page).to have_content('Total Inhabitants: 97')
     end
   end
 end

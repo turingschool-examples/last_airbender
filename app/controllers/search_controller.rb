@@ -1,5 +1,7 @@
 class SearchController < ApplicationController
     def index
-      require "pry"; binding.pry
+      element = params[:nation].split('_')[0]
+      type = params[:nation].split('_')[1]
+      @search = SearchFacade.searched_nation(element, type)
     end
   end

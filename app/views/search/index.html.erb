@@ -1,3 +1,18 @@
-<h2>Nation Members</h2>
+<h2><%= @nation %> Members</h2>
 
-<h5>Total number of members: <%= @total_members %></h5>
+<h3>Total number of <%= @nation %> members: <%= @total_members %></h3>
+<br>
+
+<ol id='25-members'>
+  <% @members.each do |member| %>
+    <%= image_tag member.photo if member.photo != nil %>
+    <li>
+    <section id="member-<%= member.name %>">
+    <p>Name: <%= member.name %></p>
+    <p>Allies: <%= member.allies %></p>
+    <p>Enemies: <%= member.enemies %></p>
+    <p>Affiliations: <%= member.affiliations %></p><br>
+    </section>
+    </li>
+  <% end %>
+</ol>

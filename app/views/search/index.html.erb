@@ -1,0 +1,12 @@
+<h1>Total Members: <%= @nations.count%></h1>
+
+<section id='nation'>
+  <% @nations.first(25).each do |nation| %>
+
+    <p class ='name'><%= nation.name%></p>
+    <p class='allies' ><%= nation.allies.to_sentence%></p>
+    <p class='enemies'><%= nation.enemies.to_sentence%></p>
+    <%= nation.photo %>
+    <p class='affiliation'><%= nation.affiliation%></p>
+  <%end%>
+  </section>

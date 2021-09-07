@@ -13,14 +13,15 @@ RSpec.describe 'Find Nations', type: :feature do
 
       expect(current_path).to eq(search_index_path)
 
-      expect(page).to have_content('Total Members: 100')
+      expect(page).to have_content('Total Members: 97')
 
-      # within(first('.parks')) do 
-      #   expect(page).to have_css('.name')
-      #   expect(page).to have_css('.description')
-      #   expect(page).to have_css('.directions')
-      #   expect(page).to have_css('.hours_of_op')
-      # end
+      within(first('#nation')) do 
+        expect(page).to have_css('.name')
+        expect(page).to have_css('.allies')
+        expect(page).to have_css('.enemies')
+        # expect(page).to have_css('.photo')
+        expect(page).to have_css('.affiliation')
+      end
 
       # expect(page).to have_content('Andrew Johnson National Historic Site')
     end

@@ -1,6 +1,7 @@
 class SearchController < ApplicationController
   def index
-    @nation = NationsFacade.find_by_nation(params[:nation]) 
-    require 'pry'; binding.pry 
+    name = params[:nation].split('_').map(&:capitalize)
+    final_name = name[0] + '+' + name[1]
+    @nations = NationsFacade.find_by_nation(final_name) 
   end
 end

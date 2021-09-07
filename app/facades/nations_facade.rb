@@ -1,12 +1,8 @@
 class NationsFacade
   class << self
     def find_by_nation(nation)
-      params = {affiliation: nation}
-      # params[:affiliation][4] = '+'
-      params[:affiliation]['f'] = 'F'
-      params[:affiliation][5] = 'N'
-      nations_info = NationsService.call_db("/api/v1/characters?", params)
-      require 'pry'; binding.pry
+      nations_info = NationsService.call_db("/api/v1/characters?affiliation=#{nation}&perPage=150&page=1")
+      nations_info.map { |info| NationsInfo.new(info) }
     end
   end
 end

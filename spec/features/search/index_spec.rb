@@ -15,6 +15,13 @@ RSpec.describe 'can go to a search page for a certain nation' do
     select "Fire Nation", from: 'nation'
     click_button('Search For Members')
 
-    expect(page).to have_content("Azula")
+    service_call = CharacterFacade.character_information("Fire Nation")
+
+    expect(page).to have_content("Number of affiliates #{service_call.size}")
+    expect(page).to have_content(service_call[1].name)
+    expect(page).to have_content(service_call[1].allies)
+    expect(page).to have_content(service_call[1].enemies)
+    expect(page).to have_content(service_call[1].affiliation)
+    expect(page).to have_content(service_call[1].photo)
   end
 end

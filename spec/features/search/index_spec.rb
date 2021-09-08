@@ -13,5 +13,6 @@ RSpec.describe 'Search Index Page' do
     expect(page).to have_content("Chan (Fire Nation admiral)")
     expect(page).to have_content("Fire Nation bar patron's friend")
     expect(page).to have_content("25")
+    expect(page).to_not have_content("26")
   end
 end

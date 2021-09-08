@@ -1,14 +1,21 @@
 <h1><%= @nation.titleize %></h1>
 
+<h2>Nation Population: <%= @members.count %></h2>
 <h2>First 25 Members:</h2>
 <ol><% @members[0..24].each do |member| %>
   <li><p>Name: <%= member.name %>
   <br>
-    Allies: <% member.allies.each do |ally| %>
-      <%= ally %><br>
-    <% end %>
-    Enemies: <% member.enemies.each do |enemy| %>
-      <%= enemy %><br>
-    <% end %>
+    Allies: <% if member.allies.count > 0 %>
+              <% member.allies.each do |ally| %>
+                <%= ally %>
+              <% end %>
+            <% else %> N/A
+            <% end %><br>
+    Enemies: <% if member.enemies.count > 0 %>
+              <% member.enemies.each do |enemy| %>
+                <%= enemy %>
+              <% end %>
+            <% else %> N/A
+            <% end %><br>
     Affiliation: <%= member.affiliation %></p></li>
 <% end %></ol>

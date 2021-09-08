@@ -1,6 +1,6 @@
 class AirBenderService
   def self.get_members(nation)
-    response = Faraday.get("https://last-airbender-api.herokuapp.com/api/v1/characters?perPage=100&affiliation=#{nation}")
+    response = Faraday.get("https://last-airbender-api.herokuapp.com/api/v1/characters?perPage=150&affiliation=#{nation}")
     JSON.parse(response.body, symbolize_names: true)
   end
 end

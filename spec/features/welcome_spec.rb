@@ -11,13 +11,15 @@ RSpec.describe 'welcome page' do
   # (Note: Use the existing select field) x
   # And I click "Search For Members" x
   # Then I should be on page "/search" x
-  # Then I should see the total number of people who live in the Fire Nation. (should be close to 100)
-  # And I should see a list with the detailed information for the first 25 members of the Fire Nation.
+  # Then I should see the total number of people who live in the Fire Nation.
+  # (should be close to 100) X
+  # And I should see a list with the detailed information for the first 25 members
+  # of the Fire Nation. X
 #   And for each of the members I should see:
 #   - The name of the member (and their photo, if they have one)
-#   - The list of allies or "None"
-#   - The list of enemies or "None"
-#   - Any affiliations that the member has
+#   - The list of allies or "None" x
+#   - The list of enemies or "None" x
+#   - Any affiliations that the member has x
   describe 'as a user when i visit /' do
     it 'has a search bar and can search for members of a given nation' do
       expect(page).to have_field(:nation)

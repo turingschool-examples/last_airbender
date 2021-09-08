@@ -1,8 +1,9 @@
 <h2>Search by Nation Name</h2>
-<%= @member_search.each do |member| %>
-  <p><%= member.name %>
-  <p><%= member.allies %>
-  <p><%= member.enemies %>
+<p>Total Number of Members: <%= @member_search.count %></p>
+<% @member_search.first(25).each do |member| %>
+  <%= image_tag(member.picture) if member.picture %>
+  <p>Member Name: <%= member.name %>
+  <p>Member's Allies (if any): <%= member.allies %>
+  <p>Member's Enemies (if any):<%= member.enemies %>
   <p><%= member.affiliation %>
-  <% end %>
 <% end %>

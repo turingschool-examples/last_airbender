@@ -3,15 +3,30 @@
 <p>First 25 Members</p>
 
 <% @members.each do |member| %>
+<% if !member.photo.nil? %>
 <img src="<%= member.photo %>" alt="image" width="100" height="100">
+<% else %>
+<p>No Photo Available</p>
+<% end %>
+
   <p><%= member.name %></p>
   <p><%= member.affiliation %></p>
+
   <p>Allies: </p>
-  <% member.allies.each do |ally| %>
-  <p><%= ally %></p>
-  <% end %>
+  <% if member.allies.empty? %>
+    <p>No Allies</p>
+  <% else %>
+    <% member.allies.each do |ally| %>
+      <p><%= ally %></p>
+    <% end %>
+  <% end  %>
+
+  <% if member.enemies.empty? %>
+    <p>No Enemies</p>
+  <% else %>
   <p>Enemies: </p>
   <% member.enemies.each do |enemy| %>
   <p><%= enemy %></p>
+  <% end %>
   <% end %>
 <% end %>

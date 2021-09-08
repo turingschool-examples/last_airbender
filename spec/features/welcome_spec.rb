@@ -3,7 +3,6 @@ require 'rails_helper'
 RSpec.describe 'welcome page' do
   before :each do
     visit root_path
-    @member1 = Member.new(data = {name: "Kuzon", allies: ["Aang", "Bumi"], enemies: ["Ozai"], affiliation: "Fire Nation"})
   end
   # As a user,
   # When I visit "/" x
@@ -32,16 +31,20 @@ RSpec.describe 'welcome page' do
     end
 
     it 'can display the total number of people who live in a given nation' do
-      select 'Fire Nation', :from => "nation"
+
+      select 'Fire Nation', :from => 'nation'
       click_on 'Search For Members'
 
       expect(current_path).to eq(search_path)
-      # expect page to have member's name/allies/enemies/affiliation
-      save_and_open_page
-      expect(page).to have_content(@member1.name)
-      expect(page).to have_content(@member1.allies)
-      expect(page).to have_content(@member1.enemies)
-      expect(page).to have_content(@member1.affiliation)
+      # @member1 = Member.new(name: 'Kuzon', allies: ['Aang'], enemies: ['Ozai'], affiliation: 'Fire Nation')
+      within(first('#result')) do
+        expect(page).to have_css('#member_data')
+        # is there an easier way i can test this?
+        # expect(page).to have_content(@member1.name)
+        # expect(page).to have_content(@member1.allies)
+        # expect(page).to have_content(@member1.enemies)
+        # expect(page).to have_content(@member1.affiliation)
+      end
     end
   end
 end

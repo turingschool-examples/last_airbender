@@ -12,9 +12,9 @@ RSpec.describe 'can go to a search page for a certain nation' do
   end
 
   it 'can show the a list of charactes from a certain nation' do
-    select "Water Tribes", from: 'nation'
+    select "Fire Nation", from: 'nation'
     click_button('Search For Members')
 
-    expect(page).to have_content("Chan (Fire Nation admiral")
+    expect(page).to have_content("Azula")
   end
 end

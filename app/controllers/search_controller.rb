@@ -1,6 +1,8 @@
 class SearchController < ApplicationController
   def index
-    
+    nation = params[:nation].titleize
+
+    @characters = CharacterFacade.character_information(nation)
   end
 
 #   def show

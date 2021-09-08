@@ -1,2 +1,30 @@
 <h1> Number of affiliates <%= @characters.count %> </h1>
 
+<h3> Members affiliated </h3>
+
+<% @characters.each do |character|%>
+  <%if character.photo.nil? %>
+    <p> No Photo avaiable </p>
+  <% else %>
+    <img src="<%= character.photo %>">
+  <% end %>
+
+  <p> Name: <%= character.name %> </p>
+  <p> Affiliation: <%= character.affiliation %> </p>
+
+  <%if character.allies.empty? %>
+    <p> No allies for this character </p>
+  <% else %>
+    <% character.allies.each do |ally| %>
+      <p> Ally: <%= ally %> </p>
+    <% end %>
+  <% end %>
+
+  <%if character.enemies.empty? %>
+    <p> No enemies for this character </p>
+  <% else %>
+    <% character.enemies.each do |enemy| %>
+      <p> Enemy: <%= enemy %> </p>
+    <% end %>
+  <% end %>
+<% end %>

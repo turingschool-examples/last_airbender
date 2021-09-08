@@ -19,9 +19,9 @@ RSpec.describe 'can go to a search page for a certain nation' do
 
     expect(page).to have_content("Number of affiliates #{service_call.size}")
     expect(page).to have_content(service_call[1].name)
-    expect(page).to have_content(service_call[1].allies)
-    expect(page).to have_content(service_call[1].enemies)
+    expect(page).to have_content(service_call[1].allies[0])
+    expect(page).to have_content(service_call[1].enemies[0])
     expect(page).to have_content(service_call[1].affiliation)
-    expect(page).to have_content(service_call[1].photo)
+    expect(page).to have_css('img[src*="#{service_call[1].photo}"]')
   end
 end

@@ -1,9 +1,10 @@
 class CharacterFacade
-  @@service = CharacterService.new
 
   def self.character_information(nation)
-    cast = @@service.affiliation(nation)
-    require "pry"; binding.pry
+    service = CharacterService.affiliation(nation)
+    service.map do |hash|
+      Character.new(hash)
+    end
   end
   
 end

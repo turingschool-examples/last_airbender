@@ -4,19 +4,19 @@
 
 <h2>List of Members:</h2>
 <div id="members">
-  <% @members.each do |member| %>
-    <b><%= member[:name] %></b><br>
-    Allies: <% if member[:allies].length == 0 %>
+  <% @members[0..24].each do |member| %>
+    <b><%= member.name %></b><br>
+    Allies: <% if member.allies.length == 0 %>
               <%= "None" %>
             <% else %>
-              <%= member[:allies].join(", ") %>
+              <%= member.allies.join(", ") %>
             <% end %><br>
-    Enemies: <% if member[:enemies].length == 0 %>
+    Enemies: <% if member.enemies.length == 0 %>
               <%= "None" %>
             <% else %>
-              <%= member[:enemies].join(", ") %>
+              <%= member.enemies.join(", ") %>
             <% end %><br>
 
-    Affiliations: <%= member[:affiliation] %><br><br>
+    Affiliations: <%= member.affiliation %><br><br>
   <% end %>
 </div>

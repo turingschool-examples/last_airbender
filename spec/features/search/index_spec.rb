@@ -22,7 +22,7 @@ RSpec.describe 'Avatar Kingdom Show Page' do
     click_button "Search For Members"
 
     expect(current_path).to eq("/search")
-    expect(page).to have_content('Total Members: 20')
+    expect(page).to have_content('Total Members: 97')
 
     within "#members" do
       expect(page).to have_content('Chan (Fire Nation admiral)')

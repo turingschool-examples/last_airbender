@@ -1,10 +1,12 @@
 class AirbenderFacade
 
     def self.get_members(nation)
-        members_data = AirbenderService.members(nation)
+      nation.gsub!(' ', '+')
 
-        members_data.map do |member_data|
-            Member.new(member_data)
-        end
+      members_data = AirbenderService.members(nation)
+
+      members_data.map do |member_data|
+          Member.new(member_data)
+      end
     end
 end

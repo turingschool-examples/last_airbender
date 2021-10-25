@@ -2,8 +2,8 @@ require 'rails_helper'
 
 RSpec.describe AirbenderService do
 
-  it "can get all members details" do
-    response = AirbenderService.request("/api/v1/characters?affiliation=Fire+Nation")
+  it "can get all members details", :vcr do
+    response = AirbenderService.members("/api/v1/characters?affiliation=Fire+Nation")
 
     expect(response).to be_a Hash
 

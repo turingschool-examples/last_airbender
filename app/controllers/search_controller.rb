@@ -5,6 +5,6 @@ class SearchController < ApplicationController
   end
 
   def search
-    @found_members = AirbendersFacade.find_members(params[:search])
+    @found_members = AirbendersFacade.find_members(params[:nation])
   end
 end

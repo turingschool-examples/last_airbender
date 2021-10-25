@@ -1,6 +1,6 @@
 class AirbenderService
-    def self.members(group)
-        response = conn.get("/api/v1/characters?affiliation=#{group}")
+    def self.members(nation)
+        response = conn.get("/api/v1/characters?affiliation=#{nation}")
         JSON.parse(response.body, symbolize_names: true)
     end
 

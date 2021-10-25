@@ -21,20 +21,23 @@ RSpec.describe 'Members Search' do
       visit root_path
 
       # fill_in :search, with: 'Fire Nation'
-      choose :group, with: 'Fire Nation'
+      # choose :nation, with: 'Fire Nation'
+      choose :nation, with: 'Fire Nation'
       click_button 'Search For Members'
 
+      expect(path).to search_path
       expect(page.status_code).to eq 200
       expect(page).to have_content('Total number of members in Nation:')
       expect(page).to have_content("Chan (Fire Nation admiral)")
     end
 
-    it 'allows user to search for members by another affiliation' do
+    xit 'allows user to search for members by another affiliation' do
       visit root_path
 
-      choose :group, with: 'Water Tribe'
+      choose :nation, with: 'Water Tribe'
       click_button 'Search For Members'
 
+      expect(path).to search_path
       expect(page.status_code).to eq 200
       expect(page).to have_content('Total number of members in Nation:')
       expect(page).to have_content("Amon")

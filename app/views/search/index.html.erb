@@ -1,0 +1,23 @@
+<h3>Search Results</h3><br/>
+
+<% if @found_members %>
+  <% @found_members.each do |member| %>
+  <tr>
+    <td><%= member.name %></td><br/>
+
+
+    <% if member.allies %>
+      <% member.each do |ally| %>
+        <p> <% ally %></p>
+      <% end %>
+    <% end %><br/>
+
+    <% if member.enemies %>
+      <% member.enemies.each do |enemy| %>
+        <p> <% enemy %></p>
+      <% end %>
+    <% end %><br/>
+    <td><%= member.affiliation %></td><br/>
+  </tr>
+  <% end %>
+<% end %>

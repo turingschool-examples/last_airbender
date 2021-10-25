@@ -15,12 +15,13 @@ require 'rails_helper'
 # - The list of enemies or "None"
 # - Any affiliations that the member has
 
-RSpec.describe 'Govt Search' do
+RSpec.describe 'Members Search' do
   describe 'happy path' do
     it 'allows user to search for members by affiliation' do
       visit root_path
 
-      fill_in :search, with: 'Fire Nation'
+      # fill_in :search, with: 'Fire Nation'
+      choose :group, with: 'Fire Nation'
       click_button 'Search For Members'
 
       expect(page.status_code).to eq 200
@@ -31,7 +32,7 @@ RSpec.describe 'Govt Search' do
     it 'allows user to search for members by another affiliation' do
       visit root_path
 
-      fill_in :search, with: 'Water Tribe'
+      choose :group, with: 'Water Tribe'
       click_button 'Search For Members'
 
       expect(page.status_code).to eq 200

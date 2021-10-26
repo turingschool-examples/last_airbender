@@ -1,4 +1,3 @@
-# class Member < ApplicationRecord
 class Member
   attr_reader :name,
               :photo,

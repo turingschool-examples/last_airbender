@@ -1,4 +1,5 @@
-class Member < ApplicationRecord
+# class Member < ApplicationRecord
+class Member
   attr_reader :name,
               :photo,
               :allies,
@@ -7,7 +8,7 @@ class Member < ApplicationRecord
 
   def initialize(member_data)
     @name = member_data[:name]
-    @photo = member_data[:photo]
+    @photo = member_data[:photoUrl]
     @allies = member_data[:allies]
     @enemies = member_data[:enemies]
     @affiliation = member_data[:affiliation]

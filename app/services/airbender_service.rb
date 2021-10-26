@@ -9,8 +9,6 @@ class AirbenderService
 
     def self.conn
       Faraday.new(url: "https://last-airbender-api.herokuapp.com") do |faraday|
-      # Faraday.new(url: "https://last-airbender-api.herokuapp.com", headers: {accept: "application/json"}) do |faraday|
-          # farady.headers = {accept: "application/json"}
         end
     end
 

@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe AirbenderService do
-
   it "can get all members details" do
     response = AirbenderService.members("Fire+Nation")
 

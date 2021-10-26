@@ -1,23 +1,33 @@
-<h3>Search Results</h3><br/>
+<h2>Search Results</h2><br/>
 
 <% if @found_members %>
+  <h3>Total number of members in Nation: <%= @found_members.count %> </h3><br/>
   <% @found_members.each do |member| %>
   <tr>
-    <td><%= member.name %></td><br/>
+    <td>NAME:  &ensp;<%= member.name %></td><br/>
+    <td><%= member.affiliation %></td><br/>
 
+    <% if member.photo %>
+      <img src="#{member.photo}">
+    <% end %><br/>
 
     <% if member.allies %>
-      <% member.each do |ally| %>
-        <p> <% ally %></p>
+    <p>ALLIES:  </p>
+      <% member.allies.each do |ally| %>
+        <p>&ensp;&ensp;<%= ally %></p>
       <% end %>
+    <% else %>
+      <p>None</p>
     <% end %><br/>
 
     <% if member.enemies %>
+    <p>ENEMIES:  </p>
       <% member.enemies.each do |enemy| %>
-        <p> <% enemy %></p>
+        <p>&ensp;&ensp;<%= enemy %></p>
       <% end %>
+    <% else %>
+      <p>None</p>
     <% end %><br/>
-    <td><%= member.affiliation %></td><br/>
   </tr>
   <% end %>
 <% end %>

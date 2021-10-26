@@ -20,27 +20,26 @@ RSpec.describe 'Members Search' do
     it 'allows user to search for members by affiliation' do
       visit root_path
 
-      # fill_in :search, with: 'Fire Nation'
-      # choose :nation, with: 'Fire Nation'
-      choose :nation, with: 'Fire Nation'
+      select "Water Tribe", from: :nation
       click_button 'Search For Members'
 
-      expect(path).to search_path
       expect(page.status_code).to eq 200
-      expect(page).to have_content('Total number of members in Nation:')
-      expect(page).to have_content("Chan (Fire Nation admiral)")
+      expect(current_path).to eq(search_path)
+      expect(page).to have_content('Total number of members in Nation: ')
+      expect(page).to have_content(1)
+      expect(page).to have_content("Kya")
     end
 
-    xit 'allows user to search for members by another affiliation' do
+    it 'allows user to search for members by another affiliation' do
       visit root_path
 
-      choose :nation, with: 'Water Tribe'
+      select "Fire Nation", from: :nation
       click_button 'Search For Members'
 
-      expect(path).to search_path
       expect(page.status_code).to eq 200
+      expect(current_path).to eq(search_path)
       expect(page).to have_content('Total number of members in Nation:')
-      expect(page).to have_content("Amon")
+      expect(page).to have_content(20)
     end
   end
 end

@@ -4,8 +4,10 @@ class AirbenderFacade
       nation.gsub!(' ', '+')
       members_data = AirbenderService.members(nation)
 
-      members_data.map do |member_data|
-          Member.new(member_data)
+      all_members = members_data.map do |member|
+          Member.new(member)
       end
+      # require "pry"; binding.pry
+
     end
 end

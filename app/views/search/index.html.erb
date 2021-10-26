@@ -1,0 +1,8 @@
+<div class="container">
+  <% @characters.each do |char| %>
+    <h3><%= char.name %></h3><br>
+    <%= char.allies %><br>
+    <%= char.enemies %><br>
+    <%= char.affiliation %><br>
+  <% end %>
+</div>
